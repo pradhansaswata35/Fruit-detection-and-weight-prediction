@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5-Page Scrollable Media Website</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <button onclick="scrollToSection('page1')">Home</button>
+    <button onclick="scrollToSection('page2')">Demo</button>
+    <button onclick="scrollToSection('page3')">Media</button>
+    <button onclick="scrollToSection('page4')">Features</button>
+    <button onclick="scrollToSection('page5')">About</button>
+    <button onclick="scrollToSection('page6')">Contact</button>
+  </div>
+
+  <!-- Page 1 -->
+  <section id="page1">
+    <h1 class="main-title">Welcome to Fruit Detection and Weight Prediction Website</h1>
+    <p>The project introduces an intelligent real-time system that uses extended computer vision and deep learning
+      techniques to record, classify and evaluate the weights of different fruits. The system is developed for dynamic
+      environments such as supermarkets, warehouses and agricultural markets to improve efficiency, reduce human error,
+      and support automatic checkout and inventory processes. This data record records a wide range of species and
+      varieties, including detailed variations in size, texture, shape, color and maturity. Each image is meticulously
+      commented, so the model can also learn the subtle differences between similar fruit categories. The model is
+      trained using data magnification techniques such as rotation, brightness adjustment, and blockage to ensure that
+      it is blocked under a variety of real-world conditions. The system has been tested for its ability to identify and
+      classify several fruit types in a single frame, carefully count them, and estimate both the unit and the overall
+      weight. This step checks the actual performance of the model in complex, overcrowded environments. Yolov9 handles
+      high-speed frames, identifying several fruit types, and extracting important features such as size, shape,
+      texture, and color. These properties are used to understand the weight of each fruit, both individually and
+      together. This makes the prediction algorithm based on visual inputs. Real-time classification and weight data can
+      be automatically fed to retail systems. Therefore, faster checkouts and more accurate billing can be possible
+      without manual intervention. This reduces labor costs and minimizes price errors. This ensures portability, low
+      latency and consistent performance in environments with limited computing resources. A user-friendly graphics
+      interface allows employees to visualize awareness, monitor their systems and manage updates without the need for
+      technical know-how.
+      Finally, the system is scalable and customizable. New fruit categories can be added with minimal retraining, and
+      the architecture supports a wide range of applications, from small-scale retail setups to industrial-scale fruit
+      sorting processes.</p>
+  </section>
+
+
+  <section id="page2">
+    <h1 class="main-title">Demo Page</h1>
+    <div class="demo">
+
+      <div class="demo_video">
+        <video muted controls>
+          <source src="{{ url_for('static', filename='Videos/Demo_video.mp4') }}" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="demo_info">
+        Watch our real-time demo that shows how the system detects fruits like Apple, Orange, Banana, and Carrot using a
+        camera and instantly predicts their weight. The video highlights the bounding boxes, labels, and live weight
+        predictions made using our trained model. This demo helps you understand how computer vision and machine
+        learning come together to create an accurate and contactless fruit weighing system.These visual cues are then
+        analyzed to estimate the weightbased on shape, size, and texture. The system is smart enough to detect multiple
+        fruits at once and calculate the total weight in real-time. This solution can be used in supermarkets,
+        warehouses, or farms to improve efficiency and reduce human effort. No physical touch or manual weighing is
+        needed—everything happens through a simple video feed, making the process fast, reliable, and scalable.
+      </div>
+    </div>
+
+
+  </section>
+
+
+  <!-- Page 3: Media -->
+  <section id="page3">
+    <!-- Heading -->
+    <h1 class="main-title">Media Upload & Capture</h1>
+
+    <!-- Button Group -->
+    <div class="button-group">
+      <button id="uploadBtn" class="toggle-btn">Upload Image</button>
+      <button id="captureBtn" class="toggle-btn">Capture Images</button>
+    </div>
+
+    <!-- Give Input Button -->
+    <div class="input-btn-container">
+      <button id="giveInputBtn">Give Input</button>
+    </div>
+
+    <!-- Prediction Table -->
+    <div class="table-container">
+      <table id="predictionTable">
+        <thead>
+          <tr>
+            <th>Sl-No</th>
+            <th>Class</th>
+            <th>Height (px)</th>
+            <th>Width (px)</th>
+            <th>Color</th>
+            <th>Predicted Weight (g)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Initially empty rows -->
+          <!-- 9 data rows -->
+          <tr>
+            <td colspan="6">No data yet</td>
+          </tr>
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+          <!-- Total row -->
+          <tr id="totalRow">
+            <td colspan="5" style="text-align: right;"><strong>Total Weight:</strong></td>
+            <td><strong>0 g</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+  <!-- Page 4 -->
+  <section id="page4">
+    <h1 class="main-title">Fruit Detection</h1>
+    <div class="description">
+      <ul>
+        <li>Fruit detection is powered by a cutting-edge real-time object detection algorithm.</li>
+        <li>The process begins with capturing images or video feeds of fruits using a camera.</li>
+        <li>These inputs are preprocessed—resized, normalized, and formatted—to match the model’s requirements, which
+          simultaneously detects and classifies multiple fruits in a single pass.</li>
+        <li>The model draws bounding boxes around each fruit and assigns a confidence score and class label (e.g.,
+          apple, banana).</li>
+        <li>Visual features like size, color, shape, and texture are extracted for further analysis, including weight
+          estimation and ripeness classification.</li>
+        <li>The system displays the detected fruits with labeled bounding boxes in real-time, enabling fast and accurate
+          identification even in complex, mixed-fruit scenarios.</li>
+        <li>This is optimized for edge devices, ensuring high-speed performance in practical retail and supply chain
+          environments.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Page 5 -->
+  <section id="page5">
+    <h1 class="main-title">Weight Prediction of Fruits</h1>
+    <div class="description">
+      <ul>
+        <li>
+          We have developed a real-time, contactless fruit detection and weight estimation system designed for use in
+          retail counters, automated checkout points, and fruit sorting facilities. This innovative solution uses live
+          video input to detect fruits such as apples, oranges, bananas, and carrots without any physical contact or
+          weighing scales.
+        </li>
+
+        <li>
+          At the core of the system is the advanced YOLOv9 object detection model, which accurately identifies and
+          outlines
+          each fruit within the camera frame using bounding boxes. Once detected, the system goes beyond identification
+          by
+          extracting detailed visual features of each fruit, including its size, shape, and color.</li>
+
+        <li>
+          These extracted features are then passed to a dedicated regression model, specifically trained on a large
+          of real fruit images with corresponding weight labels. This allows the system to predict the weight of each
+          based solely on its visual characteristics. By learning the correlation between appearance and weight, the
+          delivers accurate predictions in real time.
+        </li>
+
+        <li>
+          This contactless weight estimation method offers several advantages. It eliminates the need for physical
+          scales, reducing equipment costs and maintenance. It also enhances hygiene by minimizing human contact with
+          fresh produce, making it ideal for modern retail and food handling environments. Additionally, it speeds up
+          checkout and sorting processes, improving overall operational efficiency.
+        </li>
+
+        <li>
+          Our system represents a significant step forward in the automation of fruit handling, providing a practical,
+          scalable solution for businesses looking to modernize their operations with intelligent, AI-driven technology.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Page 6 -->
+  <section id="page6">
+    <h1 class="main-title">Contact Our Project Team</h1>
+    <div class="team">
+      <div class="member">
+        <h3>Swathi Hazra</h3>
+        <p><strong>Team Leader</strong></p>
+        <p>Email: cse21038@cemk.ac.in</p>
+        <p>Mobile: 7439906705</p>
+      </div>
+      <div class="member">
+        <h3>Manisha Maity</h3>
+        <p>Group Member</p>
+        <p>Email: cse21051@cemk.ac.in</p>
+        <p>Mobile: 9382933039</p>
+      </div>
+      <div class="member">
+        <h3>Saswata Pradhan</h3>
+        <p>Group Member</p>
+        <p>Email: cse21013@cemk.ac.in</p>
+        <p>Mobile: 8436257691</p>
+      </div>
+      <div class="member">
+        <h3>Tanmoy Patra</h3>
+        <p>Group Member</p>
+        <p>Email: cse21023@cemk.ac.in</p>
+        <p>Mobile: 7501564476</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script src="../static/script.js"></script>
+</body>
+
+</html>
