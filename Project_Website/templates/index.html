@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>5-Page Scrollable Media Website</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <button onclick="scrollToSection('page1')">Home</button>
+    <button onclick="scrollToSection('page2')">Demo</button>
+    <button onclick="scrollToSection('page3')">Media</button>
+    <button onclick="scrollToSection('page4')">Features</button>
+    <button onclick="scrollToSection('page5')">About</button>
+    <button onclick="scrollToSection('page6')">Contact</button>
+  </div>
+
+  <!-- Page 1 -->
+  <section id="page1">
+    <h1 class="main-title">Welcome to Fruit Detection and Weight Prediction Website</h1>
+    <p>The project introduces an intelligent real-time system that uses extended computer vision and deep learning techniques to record, classify and evaluate the weights of different fruits. The system is developed for dynamic environments such as supermarkets, warehouses and agricultural markets to improve efficiency, reduce human error, and support automatic checkout and inventory processes. This data record records a wide range of species and varieties, including detailed variations in size, texture, shape, color and maturity. Each image is meticulously commented, so the model can also learn the subtle differences between similar fruit categories. The model is trained using data magnification techniques such as rotation, brightness adjustment, and blockage to ensure that it is blocked under a variety of real-world conditions. The system has been tested for its ability to identify and classify several fruit types in a single frame, carefully count them, and estimate both the unit and the overall weight. This step checks the actual performance of the model in complex, overcrowded environments. Yolov9 handles high-speed frames, identifying several fruit types, and extracting important features such as size, shape, texture, and color. These properties are used to understand the weight of each fruit, both individually and together. This makes the prediction algorithm based on visual inputs. Real-time classification and weight data can be automatically fed to retail systems. Therefore, faster checkouts and more accurate billing can be possible without manual intervention. This reduces labor costs and minimizes price errors. This ensures portability, low latency and consistent performance in environments with limited computing resources. A user-friendly graphics interface allows employees to visualize awareness, monitor their systems and manage updates without the need for technical know-how.
+      Finally, the system is scalable and customizable. New fruit categories can be added with minimal retraining, and the architecture supports a wide range of applications, from small-scale retail setups to industrial-scale fruit sorting processes.</p>
+  </section>
+
+  
+  <section id="page2">
+    <h1 class="main-title">Demo Page</h1>
+    <div class="demo">
+
+      <div class="demo_video">
+        <video muted controls>
+          <source src="{{ url_for('static', filename='Videos/Demo_video.mp4') }}" type="video/mp4">
+        </video>        
+      </div>
+
+      <div class="demo_info">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, aliquam minima modi reprehenderit quod sunt similique iusto maxime tempore quaerat quam hic consequatur odit ullam laudantium dignissimos, temporibus officia ipsam odio, soluta deserunt ratione. Explicabo, cupiditate. Fuga deleniti reiciendis mollitia ad at, nisi magni, dignissimos eaque iure laboriosam quibusdam laudantium quisquam maiores? Tempore expedita inventore deserunt labore? Praesentium sed totam accusantium numquam dolorem aspernatur eum nesciunt! Tenetur quis voluptas libero blanditiis placeat quibusdam. Porro, corporis. Vel eos consequatur tenetur deleniti quae totam similique voluptate porro qui doloremque, aliquam blanditiis fugiat minus sint quaerat? Similique magni inventore tempore mollitia earum, quaerat commodi, saepe omnis ducimus sequi, quo adipisci soluta! Nobis provident itaque sequi eum facilis doloremque eius repellendus voluptate, iusto rerum recusandae officiis error? Beatae, alias adipisci. Culpa voluptatibus porro dolore, tempora accusantium dolores totam quis qui corporis rem? Nam laboriosam fugit autem soluta illum ab saepe qui, consequatur amet dolorum!
+      </div>
+    </div>
+
+
+  </section>
+
+   
+  <!-- Page 3: Media -->
+  <section id="page3">
+    <!-- Heading -->
+    <h1 class="main-title">Media Upload & Capture</h1>
+  
+    <!-- Button Group -->
+    <div class="button-group">
+      <button id="uploadBtn" class="toggle-btn">Upload Image</button>
+      <button id="captureBtn" class="toggle-btn">Capture Images</button>
+    </div>
+  
+    <!-- Give Input Button -->
+    <div class="input-btn-container">
+      <button id="giveInputBtn">Give Input</button>
+    </div>
+  
+    <!-- Prediction Table -->
+    <div class="table-container">
+      <table id="predictionTable">
+        <thead>
+          <tr>
+            <th>Sl-No</th>
+            <th>Class</th>
+            <th>Height (px)</th>
+            <th>Width (px)</th>
+            <th>Color</th>
+            <th>Predicted Weight (g)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Initially empty rows -->
+          <!-- 9 data rows -->
+          <tr><td colspan="6">No data yet</td></tr>
+          <tr><td colspan="6"></td></tr>
+          <tr><td colspan="6"></td></tr>
+          <tr><td colspan="6"></td></tr>
+          <tr><td colspan="6"></td></tr>
+          <tr><td colspan="6"></td></tr>
+          <tr><td colspan="6"></td></tr>
+          <tr><td colspan="6"></td></tr>
+          <tr><td colspan="6"></td></tr>
+          <!-- Total row -->
+          <tr id="totalRow">
+            <td colspan="5" style="text-align: right;"><strong>Total Weight:</strong></td>
+            <td><strong>0 g</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+  <!-- Page 4 -->
+  <section id="page4">
+    <h1 class="main-title">Fruit Detection</h1>
+    <p>In this project, fruit detection is powered by YOLOv9, a cutting-edge real-time object detection algorithm. The process begins with capturing images or video feeds of fruits using a camera. These inputs are preprocessed—resized, normalized, and formatted—to match the model’s requirements.Once preprocessed, the image is passed to the YOLOv9 model, which simultaneously detects and classifies multiple fruits in a single pass. The model draws bounding boxes around each fruit and assigns a confidence score and class label (e.g., apple, banana). It does this by dividing the image into grids and predicting bounding boxes and labels for each region.
+To improve accuracy, Non-Maximum Suppression (NMS) removes overlapping or duplicate detections, retaining only the most confident ones. After detection, visual features like size, color, shape, and texture are extracted for further analysis, including weight estimation and ripeness classification.
+Finally, the system displays the detected fruits with labeled bounding boxes in real-time, enabling fast and accurate identification even in complex, mixed-fruit scenarios. The entire pipeline is optimized for edge devices, ensuring high-speed performance in practical retail and supply chain environments.</p>
+  </section>
+
+  <!-- Page 5 -->
+  <section id="page5">
+    <h1 class="main-title">Weight Prediction of Fruits</h1>
+    <p>In this project, fruit weight is estimated by analyzing visual features extracted from real-time images using the YOLOv9 object detection model. Once a fruit is detected and classified, the system generates a bounding box, from which it extracts key characteristics such as size (height and width in pixels), shape, color, and texture.
+      These visual features are closely linked to a fruit’s actual weight. For example, larger bounding boxes typically indicate heavier fruits, while color and texture can help determine the fruit's ripeness and density, which also affect weight. For instance, a ripe mango may appear more yellow and weigh slightly less than a green, unripe one of the same size.
+      The extracted features are fed into a machine learning regression model trained on a dataset of fruits with known weights. This model has learned to map visual patterns to accurate weight estimates. Once the unit weight of each fruit is predicted, the system calculates the total weight by multiplying it with the count of that fruit detected in the image.
+      This approach allows fast, contactless weight estimation without using physical scales, making it ideal for retail, sorting, and inventory applications.
+
+</p>
+  </section>
+
+  <!-- Page 6 -->
+  <section id="page6">
+    <h1 class="main-title">Contact</h1>
+    <p>Email: hello@yourbrand.com<br>Phone: +123-456-7890</p>
+  </section>
+
+
+  
+  <script src="../static/script.js"></script>
+</body>
+</html>
+
+  
